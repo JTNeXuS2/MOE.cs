@@ -21,7 +21,7 @@ namespace WindowsGSM.Plugins
             name = "WindowsGSM.MOE", // WindowsGSM.XXXX
             author = "Sarpendon, NeXuS mod",
             description = "WindowsGSM plugin for supporting Myth of Empires Dedicated Server",
-            version = "1.9 mod",
+            version = "1.9a mod",
             url = "https://github.com/JTNeXuS2/MOE.cs", // Github repository link (Best practice)
             color = "#8802db" // Color Hex
         };
@@ -40,12 +40,12 @@ namespace WindowsGSM.Plugins
         public override string StartPath => @"MOE\Binaries\Win64\MOEServer.exe"; // Game server start path
         public string FullName = "MOE Dedicated Server"; // Game server FullName
         public bool AllowsEmbedConsole = true;  // Does this server support output redirect?
-        public int PortIncrements = 2; // This tells WindowsGSM how many ports should skip after installation
+        public int PortIncrements = 10; // This tells WindowsGSM how many ports should skip after installation
         public object QueryMethod = new A2S(); // Query method should be use on current server type. Accepted value: null or new A2S() or new FIVEM() or new UT3()
 
         // - Game server default values
-        public string Port = "11888"; // Default port
-        public string QueryPort = "12888"; // Default query port
+        public string Port = "9900"; // Default port
+        public string QueryPort = "9901"; // Default query port
         public string Defaultmap = "LargeTerrain_Central_Main"; // Used for Server ID
         public string ShutDownServicePort;
         public string Maxplayers = "100"; // Default maxplayers
@@ -55,7 +55,7 @@ namespace WindowsGSM.Plugins
         private string GetAdditional()
         {
             string shutDownServicePort = (int.Parse(_serverData.ServerQueryPort) + 1).ToString();
-            return $"-DBLogEnable=1 -log log=123456789.log -LOCALLOGTIMES -PrivateServer -NotCheckServerSteamAuth -EnableVACBan=0 -MultiHome={_serverData.ServerIP} -ShutDownServicePort=\"{shutDownServicePort}\" -ShutDownServiceKey=\"7539514862\" -pakdir=*..\\WindowsPrivateServer\\MOE\\123456789\\Mods* -Description=\"discord.gg/qYmBmDR\" -GameServerPVPType=1 -NoticeSelfEnable=true -NoticeSelfEnterServer=\"наш дискорд discord.gg/qYmBmDR\" -MapDifficultyRate=1 -ForceSteamNet=1 -ServerId=100 -ClusterId=1 -ServerAdminAccounts=\"76561198277462764;76561198838209834\" -NoticeAllEnable=true -disable_qim -SaveGameIntervalMinute=10 -config=ServerParamConfig_123456789.ini";
+            return $"-DBLogEnable=1 -log log=123456789.log -LOCALLOGTIMES -PrivateServer -NotCheckServerSteamAuth -EnableVACBan=0 -MultiHome={_serverData.ServerIP} -bStartShutDownServiceInPrivateServer=true -ShutDownServiceIP=\"0.0.0.0\"  -ShutDownServicePort=\"{shutDownServicePort}\" -ShutDownServiceKey=\"123456789\" -pakdir=*..\\WindowsPrivateServer\\MOE\\123456789\\Mods* -Description=\"discord.gg/qYmBmDR\" -GameServerPVPType=1 -NoticeSelfEnable=true -NoticeSelfEnterServer=\"наш дискорд discord.gg/qYmBmDR\" -MapDifficultyRate=1 -ForceSteamNet=1 -ServerId=100 -ClusterId=1 -ServerAdminAccounts=\"76561198277462764;76561198838209834\" -NoticeAllEnable=true -disable_qim -SaveGameIntervalMinute=10 -config=ServerParamConfig_123456789.ini";
         }
 
         private string ReadServerParamConfig()
@@ -91,7 +91,7 @@ namespace WindowsGSM.Plugins
         public async Task<Process> Start()
         {
 
-			//Get WAN IP from net
+            //Get WAN IP from net
             //string externalIpString = new WebClient().DownloadString("http://icanhazip.com").Replace("\\r\\n", "").Replace("\\n", "").Trim();
             //var externalIp = IPAddress.Parse(externalIpString);
 
