@@ -7,3 +7,8 @@ Place author.png, MOE.cs, MOE.png in the WindowsGSM\plugins\MOE.cs directory
 (for example, the full path to the plugin will look like this: WindowsGSM\plugins\MOE.cs\MOE.cs)
 
 Before starting the server, the plugin additionally reads the configuration file ServerParamConfig_123456789.ini generated via PrivateServerTool from the server root directory (example WindowsGSM\servers\2\serverfiles) and adds it to the launch parameters.
+
+
+### [Donate for me](https://yoomoney.ru/to/4100116619431314)
+https://fkwallet.com  ID: F111999663
+
