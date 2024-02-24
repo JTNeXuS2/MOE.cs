@@ -70,7 +70,7 @@ namespace WindowsGSM.Plugins
                     while ((line = reader.ReadLine()) != null)
                     {
                         line = line.Trim();  // Удаляем лишние пробелы в начале и конце строки
-                        if (!string.IsNullOrEmpty(line) && line != "[BaseServerConfig]")
+                        if (!string.IsNullOrEmpty(line) && line != "[BaseServerConfig]" && line != "PrivateServerPassword=") //не требуем пустой пароль
                         {
                             fileContent.Append($" -{line}"); // Добавляем " -" перед каждой строкой, кроме "[BaseServerConfig]" и пустых строк
                         }
