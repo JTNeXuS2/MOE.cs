@@ -10,5 +10,5 @@ Before starting the server, the plugin additionally reads the configuration file
 
 
 ### [Donate for me](https://yoomoney.ru/to/4100116619431314)
-https://fkwallet.com  ID: F111999663
-
+#
+https://fkwallet.io  ID: F7202415841873335
